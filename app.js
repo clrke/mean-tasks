@@ -18,12 +18,12 @@ Tasks.register(function(app, auth, database) {
 
   //We are adding a link to the main menu for all authenticated users
   Tasks.menus.add({
-    title: 'tasks example page',
-    link: 'tasks example page',
+    title: 'Tasks',
+    link: 'Tasks',
     roles: ['authenticated'],
     menu: 'main'
   });
-  
+
   Tasks.aggregateAsset('css', 'tasks.css');
 
   /**
