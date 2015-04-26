@@ -1,27 +1,25 @@
 'use strict';
 
-/* jshint -W098 */
-// The Package is past automatically as first parameter
-module.exports = function(Tasks, app, auth, database) {
+var tasks = require('../controllers/tasks');
 
-  app.get('/tasks/example/anyone', function(req, res, next) {
-    res.send('Anyone can access this');
-  });
+// Article authorization helpers
+var hasAuthorization = function(req, res, next) {
+  if (!req.user.isAdmin && req.task.user.id !== req.user.id) {
+    return res.status(401).send('User is not authorized');
+  }
+  next();
+};
 
-  app.get('/tasks/example/auth', auth.requiresLogin, function(req, res, next) {
-    res.send('Only authenticated users can access this');
-  });
+module.exports = function(Articles, app, auth) {
 
-  app.get('/tasks/example/admin', auth.requiresAdmin, function(req, res, next) {
-    res.send('Only users with Admin role can access this');
-  });
+  app.route('/tasks')
+    .get(tasks.all)
+    .post(auth.requiresLogin, tasks.create);
+  app.route('/tasks/:taskId')
+    .get(auth.isMongoId, tasks.show)
+    .put(auth.isMongoId, auth.requiresLogin, hasAuthorization, tasks.update)
+    .delete(auth.isMongoId, auth.requiresLogin, hasAuthorization, tasks.destroy);
 
-  app.get('/tasks/example/render', function(req, res, next) {
-    Tasks.render('index', {
-      package: 'tasks'
-    }, function(err, html) {
-      //Rendering a view from the Package server/views
-      res.send(html);
-    });
-  });
+  // Finish with setting up the taskId param
+  app.param('taskId', tasks.task);
 };
