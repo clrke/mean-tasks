@@ -6,5 +6,10 @@ angular.module('mean.tasks').config(['$stateProvider',
       url: '/tasks/example',
       templateUrl: 'tasks/views/index.html'
     });
+    $stateProvider.state('all tasks', {
+      url: '/tasks',
+      templateUrl: 'tasks/views/index.html'
+    });
+
   }
 ]);

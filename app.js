@@ -19,7 +19,7 @@ Tasks.register(function(app, auth, database) {
   //We are adding a link to the main menu for all authenticated users
   Tasks.menus.add({
     title: 'Tasks',
-    link: 'Tasks',
+    link: 'all tasks',
     roles: ['authenticated'],
     menu: 'main'
   });
