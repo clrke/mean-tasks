@@ -10,6 +10,10 @@ angular.module('mean.tasks').config(['$stateProvider',
       url: '/tasks',
       templateUrl: 'tasks/views/index.html'
     });
+    $stateProvider.state('create task', {
+      url: '/tasks/create',
+      templateUrl: 'tasks/views/create.html'
+    });
 
   }
 ]);

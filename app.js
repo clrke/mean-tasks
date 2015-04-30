@@ -24,6 +24,13 @@ Tasks.register(function(app, auth, database) {
     menu: 'main'
   });
 
+  Tasks.menus.add({
+    title: 'Create Task',
+    link: 'create task',
+    roles: ['authenticated'],
+    menu: 'main'
+  });
+
   Tasks.aggregateAsset('css', 'tasks.css');
 
   /**
