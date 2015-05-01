@@ -1,8 +1,8 @@
 'use strict';
 
 /* jshint -W098 */
-angular.module('mean.tasks').controller('TasksController', ['$scope', 'Global', 'Tasks',
-  function($scope, Global, Tasks) {
+angular.module('mean.tasks').controller('TasksController', ['$scope', '$location', 'Global', 'Tasks',
+  function($scope, $location, Global, Tasks) {
     $scope.global = Global;
     $scope.package = {
       name: 'tasks'
