@@ -8,7 +8,7 @@ angular.module('mean.tasks').config(['$stateProvider',
     });
     $stateProvider.state('all tasks', {
       url: '/tasks',
-      templateUrl: 'tasks/views/index.html'
+      templateUrl: 'tasks/views/list.html'
     });
     $stateProvider.state('create task', {
       url: '/tasks/create',
