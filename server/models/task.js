@@ -22,10 +22,13 @@ var TaskSchema = new Schema({
   },
   content: {
     type: String,
-    required: true,
+    required: false,
     trim: true
   },
-  done: Boolean,
+  done: {
+    type: Boolean,
+    required: false
+  },
   user: {
     type: Schema.ObjectId,
     ref: 'User'
@@ -38,10 +41,6 @@ var TaskSchema = new Schema({
 TaskSchema.path('title').validate(function(title) {
   return !!title;
 }, 'Title cannot be blank');
-
-TaskSchema.path('content').validate(function(content) {
-  return !!content;
-}, 'Content cannot be blank');
 
 /**
  * Statics

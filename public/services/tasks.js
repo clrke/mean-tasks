@@ -1,9 +1,13 @@
 'use strict';
 
-angular.module('mean.tasks').factory('Tasks', [
-  function() {
-    return {
-      name: 'tasks'
-    };
+angular.module('mean.tasks').factory('Tasks', ['$resource',
+  function($resource) {
+    return $resource('tasks/:taskId', {
+      taskId: '@_id'
+    }, {
+      update: {
+        method: 'PUT'
+      }
+    });
   }
 ]);

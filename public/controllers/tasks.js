@@ -11,7 +11,8 @@ angular.module('mean.tasks').controller('TasksController', ['$scope', '$location
       if (isValid) {
         var task = new Tasks({
           title: this.title,
-          content: this.content
+          content: 'New Content',
+          done: false
         });
         task.$save(function(response) {
           $location.path('tasks/' + response._id);
