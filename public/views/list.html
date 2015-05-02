@@ -1,18 +1,9 @@
-<section data-ng-controller="TasksController" data-ng-init="find()">
-  <ul class="tasks unstyled">
-    <li data-ng-repeat="task in tasks">
-      <h2>
-        <a data-ng-href="#!/tasks/{{task._id}}">{{task.title}}</a>
-        <span data-ng-if="hasAuthorization(task)">
-          <a class="btn" href="/#!/tasks/{{task._id}}/edit">
-            <i class="glyphicon glyphicon-edit"></i>
-          </a>
-          <a class="btn" data-ng-click="remove(task);">
-            <i class="glyphicon glyphicon-trash"></i>
-          </a>
-        </span>
-      </h2>
-    </li>
-  </ul>
+<section data-ng-controller="TasksController" data-ng-init="find()" class="tasks-list">
+  <div ng-repeat="task in tasks" class="task input-group">
+    <span class="input-group-addon">
+      <input type="checkbox" ng-model="task.done">
+    </span>
+    <input type="text" class="form-control" ng-model="task.title">
+  </div>
   <h1 data-ng-hide="!tasks || tasks.length">No tasks yet. <br> Why don't you <a href="/#!/tasks/create">Create One</a>?</h1>
 </section>
