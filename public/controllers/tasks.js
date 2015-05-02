@@ -11,16 +11,17 @@ angular.module('mean.tasks').controller('TasksController', ['$scope', '$location
 		$scope.newTask = {
 			title: '',
 			done: false
-		}
+		};
 
 		$scope.filterByTab = function () {
-			if($scope.tasksTab == 2)
+			if($scope.tasksTab === 2)
 				return null;
 
 			return {
-				done: $scope.tasksTab == 1
-			}
-		}
+				done: $scope.tasksTab === 1
+			};
+		};
+
 		$scope.hasAuthorization = function(article) {
 			if (!article || !article.user) return false;
 			return $scope.global.isAdmin || article.user._id === $scope.global.user._id;
@@ -58,7 +59,7 @@ angular.module('mean.tasks').controller('TasksController', ['$scope', '$location
 			$scope.tasks.push($scope.newTask);
 
 			$scope.newTask = {title: '', done: false};
-		}
+		};
 
 		$scope.update = function (task) {
 			if( ! task.title)
@@ -67,7 +68,7 @@ angular.module('mean.tasks').controller('TasksController', ['$scope', '$location
 			task.$update(function (response) {
 				return response;
 			});
-		}
+		};
 
 		$scope.find = function() {
 			Tasks.query(function(tasks) {

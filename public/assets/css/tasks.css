@@ -5,9 +5,9 @@
 section.tasks-list div.task,
 section.tasks-list div.task input,
 section.tasks-list div.task .input-group-addon {
-	border-radius: 0px 0px 0px 0px;
+	border-radius: 0 0 0 0;
 }
 
 .tasks.btn-group .btn {
-	border-radius: 0px;
+	border-radius: 0;
 }
