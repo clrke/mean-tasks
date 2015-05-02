@@ -45,6 +45,9 @@ angular.module('mean.tasks').controller('TasksController', ['$scope', '$location
 		};
 
 		$scope.createFromList = function (task) {
+			if( ! task.title)
+				return;
+
 			task = new Tasks({
 				title: task.title,
 				content: 'New Content',
@@ -58,6 +61,9 @@ angular.module('mean.tasks').controller('TasksController', ['$scope', '$location
 		}
 
 		$scope.update = function (task) {
+			if( ! task.title)
+				return;
+
 			task.$update(function (response) {
 				return response;
 			});
