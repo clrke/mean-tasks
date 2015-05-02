@@ -19,11 +19,13 @@
     </span>
     <input type="text" class="form-control" ng-blur="update(task)" ng-model="task.title">
   </div>
-  <div class="task input-group">
-    <span class="input-group-addon">
-      <input type="checkbox" ng-model="newTask.done">
-    </span>
-    <input type="text" class="form-control" ng-blur="createFromList(newTask)" ng-model="newTask.title"
-      placeholder="New Task...">
-  </div>
+  <form ng-submit="createFromList(newTask)">
+    <div class="task input-group">
+      <span class="input-group-addon">
+        <input type="checkbox" ng-model="newTask.done">
+      </span>
+      <input type="text" class="form-control" ng-blur="createFromList(newTask)" ng-model="newTask.title"
+        placeholder="New Task...">
+    </div>
+  </form>
 </section>
