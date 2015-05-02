@@ -8,6 +8,10 @@ angular.module('mean.tasks').controller('TasksController', ['$scope', '$location
 			name: 'tasks'
 		};
 		$scope.tasksTab = 0;
+		$scope.newTask = {
+			title: '',
+			done: false
+		}
 
 		$scope.filterByTab = function () {
 			if($scope.tasksTab == 2)
@@ -39,6 +43,19 @@ angular.module('mean.tasks').controller('TasksController', ['$scope', '$location
 				$scope.submitted = true;
 			}
 		};
+
+		$scope.createFromList = function (task) {
+			task = new Tasks({
+				title: task.title,
+				content: 'New Content',
+				done: task.done
+			});
+			task.$save();
+
+			$scope.tasks.push($scope.newTask);
+
+			$scope.newTask = {title: '', done: false};
+		}
 
 		$scope.update = function (task) {
 			task.$update(function (response) {
