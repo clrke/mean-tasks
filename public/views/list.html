@@ -1,5 +1,19 @@
 <section data-ng-controller="TasksController" data-ng-init="find()" class="tasks-list">
-  <div ng-repeat="task in tasks" class="task input-group">
+  <div class="tasks btn-group">
+    <button class="btn" ng-class="{'btn-primary': tasksTab == 0, 'btn-default': tasksTab != 0}"
+      ng-click='tasksTab = 0'>
+      Incompleted
+    </button>
+    <button class="btn" ng-class="{'btn-primary': tasksTab == 1, 'btn-default': tasksTab != 1}"
+      ng-click='tasksTab = 1'>
+      Completed
+    </button>
+    <button class="btn" ng-class="{'btn-primary': tasksTab == 2, 'btn-default': tasksTab != 2}"
+      ng-click='tasksTab = 2'>
+      All Tasks
+    </button>
+  </div>
+  <div ng-repeat="task in tasks | filter: filterByTab()" class="task input-group">
     <span class="input-group-addon">
       <input type="checkbox" ng-model="task.done">
     </span>
