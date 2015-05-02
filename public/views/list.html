@@ -15,9 +15,9 @@
   </div>
   <div ng-repeat="task in tasks | filter: filterByTab()" class="task input-group">
     <span class="input-group-addon">
-      <input type="checkbox" ng-model="task.done">
+      <input type="checkbox" ng-model="task.done" ng-click="update(task)">
     </span>
-    <input type="text" class="form-control" ng-model="task.title">
+    <input type="text" class="form-control" ng-blur="update(task)" ng-model="task.title">
   </div>
   <h1 data-ng-hide="!tasks || tasks.length">No tasks yet. <br> Why don't you <a href="/#!/tasks/create">Create One</a>?</h1>
 </section>

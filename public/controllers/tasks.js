@@ -40,6 +40,12 @@ angular.module('mean.tasks').controller('TasksController', ['$scope', '$location
 			}
 		};
 
+		$scope.update = function (task) {
+			task.$update(function (response) {
+				return response;
+			});
+		}
+
 		$scope.find = function() {
 			Tasks.query(function(tasks) {
 				$scope.tasks = tasks;
