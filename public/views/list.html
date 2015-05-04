@@ -13,19 +13,20 @@
       All Tasks
     </button>
   </div>
-  <div ng-repeat="task in tasks | filter: filterByTab()" class="task input-group">
-    <span class="input-group-addon">
-      <input type="checkbox" ng-model="task.done" ng-click="update(task)">
-    </span>
-    <input type="text" class="form-control" ng-blur="update(task)" ng-model="task.title">
-  </div>
-  <form ng-submit="createFromList(newTask)">
-    <div class="task input-group">
-      <span class="input-group-addon">
-        <input type="checkbox" ng-model="newTask.done">
-      </span>
-      <input type="text" class="form-control" ng-blur="createFromList(newTask)" ng-model="newTask.title"
+  <form ng-repeat="task in tasks | filter: filterByTab()" class="task form-inline">
+    <input type="checkbox" ng-model="task.done" ng-click="update(task)">
+    <input type="text" class="form-control" ng-model="task.title" ng-blur="update(task)"
+      placeholder="New Task...">
+    <input type="number" class="form-control hours-spent" ng-model="task.hours"
+        ng-blur="update(task)" min="0" placeholder="Hours {{ task.done? 'Spent' : 'to Spend' }}">
+  </form>
+  <form ng-submit="createFromList(newTask)" class="form-inline">
+    <div class="task">
+      <input type="checkbox" ng-model="newTask.done">
+      <input type="text" class="form-control" ng-model="newTask.title" ng-blur="createFromList(newTask)"
         placeholder="New Task...">
+      <input type="number" class="form-control hours-spent" ng-model="newTask.hours"
+          ng-blur="createFromList(newTask)" min="0" placeholder="Hours {{ task.done? 'Spent' : 'to Spend' }}">
     </div>
   </form>
 </section>

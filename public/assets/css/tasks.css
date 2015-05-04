@@ -11,3 +11,18 @@ section.tasks-list div.task .input-group-addon {
 .tasks.btn-group .btn {
 	border-radius: 0;
 }
+
+span.input-group-addon.hours-spent-addon {
+	width: 180px;
+}
+
+span.input-group-addon.hours-spent-addon input.hours-spent {
+	height: 20px;
+	width: 60px;
+	font-size: 12px;
+}
+
+span.input-group-addon.hours-spent-addon span.hours-spent-label {
+	font-weight: bold;
+	font-size: 12px;
+}

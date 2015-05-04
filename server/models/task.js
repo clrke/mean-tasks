@@ -29,6 +29,10 @@ var TaskSchema = new Schema({
     type: Boolean,
     required: false
   },
+  hours: {
+    type: Number,
+    required: true
+  },
   user: {
     type: Schema.ObjectId,
     ref: 'User'

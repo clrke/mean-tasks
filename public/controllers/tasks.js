@@ -46,23 +46,25 @@ angular.module('mean.tasks').controller('TasksController', ['$scope', '$location
 		};
 
 		$scope.createFromList = function (task) {
-			if( ! task.title)
+			if( ! task.title || ! task.hours )
 				return;
 
 			task = new Tasks({
 				title: task.title,
 				content: 'New Content',
-				done: task.done
+				done: task.done,
+				hours: task.hours
 			});
+
 			task.$save();
 
 			$scope.tasks.push($scope.newTask);
 
-			$scope.newTask = {title: '', done: false};
+			$scope.newTask = {title: '', done: false, hour: null};
 		};
 
 		$scope.update = function (task) {
-			if( ! task.title)
+			if( ! task.title || ! task.hours)
 				return;
 
 			task.$update(function (response) {
