@@ -14,7 +14,7 @@
     </button>
   </div>
   <form ng-repeat="task in tasks | filter: filterByTab()" class="task form-inline">
-    <input type="checkbox" ng-model="task.done" ng-click="update(task)">
+    <input type="checkbox" ng-model="task.done" ng-change="update(task)">
     <input type="text" class="form-control" ng-model="task.title" ng-blur="update(task)"
       placeholder="New Task...">
     <input type="number" class="form-control hours-spent" ng-model="task.hours"
