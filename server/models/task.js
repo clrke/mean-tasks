@@ -29,6 +29,10 @@ var TaskSchema = new Schema({
     type: Boolean,
     required: false
   },
+  completed: {
+    type: Date,
+    required: false
+  },
   hours: {
     type: Number,
     required: true

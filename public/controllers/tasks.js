@@ -53,6 +53,7 @@ angular.module('mean.tasks').controller('TasksController', ['$scope', '$location
 				title: task.title,
 				content: 'New Content',
 				done: task.done,
+				completed: task.done ? Date() : null,
 				hours: task.hours
 			});
 
@@ -66,6 +67,17 @@ angular.module('mean.tasks').controller('TasksController', ['$scope', '$location
 		$scope.update = function (task) {
 			if( ! task.title || ! task.hours)
 				return;
+
+			if(task.done) {
+				if( ! task.completed) {
+					task.completed = Date();
+				}
+			}
+			else {
+				if(task.completed) {
+					task.completed = null;
+				}
+			}
 
 			task.$update(function (response) {
 				return response;
