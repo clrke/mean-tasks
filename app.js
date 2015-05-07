@@ -32,6 +32,7 @@ Tasks.register(function(app, auth, database) {
   });
 
   Tasks.aggregateAsset('css', 'tasks.css');
+  Tasks.aggregateAsset('css', 'animate.css');
 
   /**
     //Uncomment to use. Requires meanio@0.3.7 or above

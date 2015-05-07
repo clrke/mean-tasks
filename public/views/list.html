@@ -14,7 +14,7 @@
     </button>
   </div>
   <div class="list-group">
-    <div class="list-group-item" ng-repeat="task in tasks | filter: filterByTab()">
+    <div class="list-group-item task animated fadeInLeft" ng-repeat="task in tasks | filter: filterByTab()">
       <form class="task form-inline">
         <input class="task-checkbox" type="checkbox" ng-model="task.done" ng-change="update(task)">
         <input type="text" class="form-control" ng-model="task.title"
@@ -24,7 +24,7 @@
           size="4">
       </form>
     </div>
-    <div class="list-group-item">
+    <div class="list-group-item animated fadeInLeft">
       <form ng-submit="createFromList(newTask)" class="form-inline">
         <div class="task">
           <input class="task-checkbox" type="checkbox" ng-model="newTask.done">
