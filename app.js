@@ -31,6 +31,13 @@ Tasks.register(function(app, auth, database) {
     menu: 'main'
   });
 
+  Tasks.menus.add({
+    title: 'Tasks Report',
+    link: 'report task',
+    roles: ['authenticated'],
+    menu: 'main'
+  });
+
   Tasks.aggregateAsset('css', 'tasks.css');
   Tasks.aggregateAsset('css', 'animate.css');
 

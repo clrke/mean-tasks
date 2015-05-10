@@ -1,0 +1,14 @@
+<section data-ng-controller="TasksController" data-ng-init="find()" class="tasks-list">
+  <div class="list-group-item task animated fadeInLeft"
+    ng-repeat="task in tasks | filter: completed | orderBy: completed">
+    <form class="task form-inline">
+      <input class="task-checkbox" type="checkbox" ng-model="task.done" ng-change="update(task)">
+      <input type="text" class="form-control" ng-model="task.title"
+      ng-blur="update(task)" placeholder="New Task..." size="80">
+      <input type="number" class="form-control hours-spent" ng-model="task.hours"
+      ng-blur="update(task)" min="0" placeholder="Hours {{ task.done? 'Spent' : 'to Spend' }}"
+      size="4">
+      {{ task.completed }}
+    </form>
+  </div>
+</section>

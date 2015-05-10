@@ -14,6 +14,9 @@ angular.module('mean.tasks').config(['$stateProvider',
       url: '/tasks/create',
       templateUrl: 'tasks/views/create.html'
     });
-
+    $stateProvider.state('report task', {
+      url: '/tasks/report',
+      templateUrl: 'tasks/views/report.html'
+    });
   }
 ]);
