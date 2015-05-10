@@ -1,6 +1,6 @@
 <section data-ng-controller="TasksController" data-ng-init="find()" class="tasks-list">
   <div class="list-group-item task animated fadeInLeft"
-    ng-repeat="task in tasks | filter: completed | orderBy: completed">
+    ng-repeat="task in tasks | orderBy: '-completed'">
     <form class="task form-inline">
       <input class="task-checkbox" type="checkbox" ng-model="task.done" ng-change="update(task)">
       <input type="text" class="form-control" ng-model="task.title"
